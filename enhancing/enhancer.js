@@ -5,12 +5,6 @@ module.exports = {
   get,
 };
 
-let item = {
-  name: "",
-  durability: 0,
-  enhacement: 0,
-};
-
 function success(name, durability, enhacement) {
   if (enhacement < 20) {
     return enhacement + 1;
