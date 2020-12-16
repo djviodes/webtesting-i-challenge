@@ -5,16 +5,34 @@ module.exports = {
   get,
 };
 
-function success(item) {
-  return { ...item };
+let item = {
+  name: "",
+  durability: 0,
+  enhacement: 0,
+};
+
+function success(name, durability, enhacement) {
+  if (enhacement < 20) {
+    return enhacement + 1;
+  } else if (enhacement === 20) {
+    return enhacement;
+  }
+  return { name, durability, enhacement };
 }
 
-function fail(item) {
-  return { ...item };
+function fail(name, durability, enhacement) {
+  if (enhacement < 15) {
+    return durability - 5;
+  } else if (enhacement > 15) {
+    return durability - 10;
+  } else if (enhacement > 16) {
+    return durability - 10, enhacement - 1;
+  }
+  return { name, durability, enhacement };
 }
 
 function repair(item) {
-  return { ...item };
+  return { ...item, durability: 100 };
 }
 
 function get(item) {
